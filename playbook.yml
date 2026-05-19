@@ -1,0 +1,33 @@
+---
+- name: Deploy Simple Web Server
+  hosts: webservers
+  become: yes
+  tasks:
+
+    - name: Update package cache
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
+
+    - name: Install Nginx web server
+      apt:
+        name: nginx
+        state: present
+
+    - name: Deploy custom index.html
+      copy:
+        src: index.html
+        dest: /var/www/html/index.html
+        owner: www-data
+        group: www-data
+        mode: '0644'
+
+    - name: Ensure Nginx is running and enabled
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+
+    - name: Show completion message
+      debug:
+        msg: "🎉 Web server setup completed successfully!"
