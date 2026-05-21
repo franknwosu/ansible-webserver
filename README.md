@@ -1,12 +1,28 @@
 # Ansible Web Server
 
-A simple beginner-friendly Ansible project.
+![Ansible](https://img.shields.io/badge/Ansible-FF6600?style=for-the-badge&logo=ansible&logoColor=white)
+![Nginx](https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white)
+
+A **beginner-friendly** Ansible project that turns a fresh machine into a working web server and deploys a custom homepage.
 
 ## 🎯 Objective
-Automatically turn a server into a web server that displays a nice "Hello Students!" page using **Ansible**.
+
+Use Ansible to:
+
+- Install and configure Nginx
+- Deploy a static website from `index.html`
+- Maintain idempotent and repeatable provisioning
+
+## ✨ Features
+
+- Installs Nginx on the target host
+- Copies a custom homepage to the web server root
+- Uses an inventory and a simple playbook
+- Safe to run multiple times without breaking the server
 
 ## 📋 Project Structure
 
+```text
 ansible-webserver/
 ├── README.md
 ├── inventory.ini
@@ -14,27 +30,42 @@ ansible-webserver/
 ├── index.html
 ├── ansible.cfg
 └── .gitignore
+```
 
+## 🚀 Quick Start
 
-## 🚀 How to Use
+### 1. Clone the repository
 
-### Step 1: Clone or Download
 ```bash
 git clone https://github.com/tinobrace/ansible-webserver.git
 cd ansible-webserver
+```
 
-### Step 2: Run the playbook
+### 2. Run the Ansible playbook
+
 ```bash
 ansible-playbook -i inventory.ini playbook.yml
+```
 
-### Step 3: View the Result
-```bash
-Open your browser and go to: http://localhost or http://your-server-ip
-You should see a beautiful welcome page!
+### 3. Open the web page
 
-## Practice Exercises
+Visit:
 
-1. Change the message in `index.html` and re-run the playbook
-2. Add a new task to install `curl`
-3. Modify the playbook to create a file `/etc/motd` with a welcome message
-4. Fork this repo and try deploying it on a real VPS (DigitalOcean, AWS, etc.)
+- `http://localhost`
+- or `http://<your-server-ip>`
+
+You should see the deployed welcome page.
+
+## 🛠️ What’s included
+
+- `playbook.yml` — the Ansible playbook that installs Nginx and deploys `index.html`
+- `inventory.ini` — the target host inventory file
+- `ansible.cfg` — optional Ansible configuration
+- `index.html` — the static homepage deployed to Nginx
+
+## 💡 Practice Exercises
+
+1. Edit `index.html` and re-run the playbook.
+2. Add a task to install `curl`.
+3. Extend the playbook to create `/etc/motd` with a welcome message.
+4. Deploy the playbook to a real VPS (DigitalOcean, AWS, etc.).
