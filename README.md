@@ -52,7 +52,7 @@ ansible-playbook -i inventory.ini playbook.yml
 Visit:
 
 - `http://localhost`
-- or `http://<your-server-ip>`
+- or `http://<your-server-ip>/ 192.168.100.50`
 
 You should see the deployed welcome page.
 
